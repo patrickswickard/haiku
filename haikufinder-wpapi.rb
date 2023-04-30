@@ -29,7 +29,7 @@ json_list.each do |thisitem|
 end
 
 text = text_string
-print text
+
 SYLHASH = JSON.parse(File.read('dict.json'))
 
 # This takes a line/sentence and returns an array with the number of syllables per word
