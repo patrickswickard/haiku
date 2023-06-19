@@ -16,3 +16,6 @@ Also note that the ones from "My Secret Life" tend to be very, very dirty.
 
 TODO - dictionary is inadequate and doesn't recognize common stemmed words (e.g. bar but not bars, drop but not dropped)
 Original source was http://hindson.com.au/info/free/free-english-language-hyphenation-dictionary/
+Switch to use CMU version cmudict-0.7b but note that some words have alternate pronunciations with more or fewer syllables, only the first given is taken currently
+
+Also note that as with anything the dictionary is good but far from complete so words are missing
