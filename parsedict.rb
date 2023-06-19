@@ -1,8 +1,10 @@
 require 'json'
 
 text = File.readlines('cleancmu.txt')
+text2 = File.read('dict-old.json')
 
-sylhash = {}
+sylhash = JSON.parse(text2)
+#print sylhash
 
 text.each do |thisline|
   if thisline =~ /^\w/
@@ -14,7 +16,12 @@ text.each do |thisline|
         sylcount += 1
       end
     end
-    sylhash[thisword.downcase] = sylcount
+    if not sylhash[thisword.downcase]
+      #print("hi #{thisword}\n")
+      sylhash[thisword.downcase] = sylcount
+    else
+      #print("innit #{thisword.downcase}\n")
+    end
   end
 end
 print sylhash.to_json
