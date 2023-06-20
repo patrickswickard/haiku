@@ -14,8 +14,12 @@ WARNING:
 May contain spoilers for these literary classics.
 Also note that the ones from "My Secret Life" tend to be very, very dirty.
 
-TODO - dictionary is inadequate and doesn't recognize common stemmed words (e.g. bar but not bars, drop but not dropped)
-Original source was http://hindson.com.au/info/free/free-english-language-hyphenation-dictionary/
-Switch to use CMU version cmudict-0.7b but note that some words have alternate pronunciations with more or fewer syllables, only the first given is taken currently
+Original dictionary was inadequate and didn't recognize common stemmed words (e.g. bar but not bars, drop but not dropped).  Original source was http://hindson.com.au/info/free/free-english-language-hyphenation-dictionary/
 
-Also note that as with anything the dictionary is good but far from complete so words are missing
+Switched to use CMU pronouncing dictionary cmudict-0.7b from http://www.speech.cs.cmu.edu/cgi-bin/cmudict but note that some words have alternate pronunciations with more or fewer syllables, only the first given is taken currently.
+
+Also note that as with anything the dictionary is good but far from complete so words are missing.
+
+UPDATE I added code to parse together a dictionary that combines the two above and also takes a third dictionary (fakecmudict.txt) which can take user-submitted words to flesh out the other two.  Entries may be added to the fakecmudict.txt by mimicking the format in the original.  For current purposes this is not striving to be a pronunciation dictionary, only a dictionary to add unrecognized words and give a syllable count (and approximation to meter).  For each syllable, simply add a SYL0 SYL1 SYL2  with SYL0 being unstressed, SYL1 being stressed, and SYL2 having secondary stress.  The important part for code purposes and syllable recognition is that you have letters followed by a number, but the closer to getting at least the stress right the better results will be for further analysis. 
+
+Running parsedict.rb will spit out json that has a combination of the three.  Note that the dictionary produced by this is also utilized in the analyze_poem project.
